@@ -1,0 +1,11 @@
+--- ppp-2.4.6.orig/pppd/chap-new.c
++++ ppp-2.4.6/pppd/chap-new.c
+@@ -358,7 +358,7 @@ chap_handle_response(struct chap_server_
+ 				 response, ss->message, sizeof(ss->message));
+ 		if (!ok || !auth_number()) {
+ 			ss->flags |= AUTH_FAILED;
+-			warn("Peer %q failed CHAP authentication", name);
++			warn("Peer %q failed CHAP authentication %s", name, ppp_devnam);
+ 		}
+ 	} else if ((ss->flags & AUTH_DONE) == 0)
+ 		return;
